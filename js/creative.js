@@ -73,30 +73,39 @@ function readURL(input) {
       $('.file-upload-content').show();
 
       $('.image-title').html(input.files[0].name);
+
+
+      console.log(input.files[0].name)
+
+      if(input.files[0].name.endsWith(".heic"))
+      {
+        console.log("gefevfvelfwevfewfeufvewuyfvew")
+      }
+
       console.log(JSON.stringify({
         data: reader.result
       }))
       fetch("https://devfest2023-je62xqayyq-ue.a.run.app/process-file", {
         
         method: 'POST',
+        mode: "cors",
         body: JSON.stringify({
           data: reader.result,
-          datatype: 'jsonp'
+          // datatype: 'jsonp'
         })
-      }).then(data => {
+      }).then(data => data.json()).then(json => {
     
-          
-    
-          let jsObject = JSON.parse(data);
+          console.log(json)
           
     
             const responseElement = document.getElementById('response');
-            responseElement.innerText = (jsObject.output);
+            responseElement.innerText = (json.output);
           })
           .catch(error => {
             const responseElement = document.getElementById('response');
             responseElement.innerText = 'Error: ' + error.message;
           });
+    
     };
       reader.readAsDataURL(input.files[0]);
 
