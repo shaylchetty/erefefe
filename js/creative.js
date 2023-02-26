@@ -72,7 +72,7 @@ function readURL(input) {
 
       $('.image-title').html(input.files[0].name);
 
-      fetch("https://devfest2023-d9dd0.web.app/process-file", {
+      fetch("http://10.206.179.141:5000/process-file", {
         
         method: 'POST',
         body: JSON.stringify({
@@ -230,4 +230,3 @@ $('.image-upload-wrap').bind('dragover', function () {
   });
 
 })(jQuery); // End of use strict
-
