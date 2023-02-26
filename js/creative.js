@@ -76,7 +76,7 @@ function readURL(input) {
       console.log(JSON.stringify({
         data: reader.result
       }))
-      fetch("http://10.206.179.141:5000/process-file", {
+      fetch("https://devfest2023-je62xqayyq-ue.a.run.app/process-file", {
         
         method: 'POST',
         body: JSON.stringify({
