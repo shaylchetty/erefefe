@@ -52,11 +52,13 @@ function processImage() {
 
 // Add an event listener to the input element to trigger the image processing
 
-const fileInput = document.getElementById("fileInput");
+// const fileInput = document.getElementById("fileInput");
 
-fileInput.addEventListener("change", processImage);
+// fileInput.addEventListener("change", processImage);
 
-console.log(5);
+// console.log(5);
+
+
 
 function readURL(input) {
   if (input.files && input.files[0]) {
@@ -72,19 +74,61 @@ function readURL(input) {
       $('.image-title').html(input.files[0].name);
 
       console.log(reader.result);
-
     };
+      reader.readAsDataURL(input.files[0]);
 
+      //heroku fetch
+
+
+      // fetch('heroku.dsd/process-image', {
+      //   method: 'POST',
+      //   body: reader.result
+      // }).then(response => {
+      //   console.log()
+      // })
+
+      // response = '{"name":"John"}'
+
+      
+
+      fetch("https://devfest2023-d9dd0.web.app/process-file", {
+        method: 'POST',
+        body: reader.result
+      }).then(data => {
     
+          
+    
+          let jsObject = JSON.parse(data);
+          
+    
+            const responseElement = document.getElementById('response');
+            responseElement.innerText = (jsObject.result);
+          })
+          .catch(error => {
+            const responseElement = document.getElementById('response');
+            responseElement.innerText = 'Error: ' + error.message;
+          });
 
-    reader.readAsDataURL(input.files[0]);
+        }
 
-    print()
+      
 
-  } else {
+      
+      
+
+      // console.log(reader.result);
+
+      // reader.readAsDataURL(input.files[0]);
+
+
+  
+  else {
     removeUpload();
   }
 }
+
+
+
 
 function removeUpload() {
   $('.file-upload-input').replaceWith($('.file-upload-input').clone());
