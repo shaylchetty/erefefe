@@ -1,5 +1,6 @@
 
 
+
 body {
   font-family: sans-serif;
   background-color: #eeeeee;
@@ -224,9 +225,11 @@ a.text-white-link:active {
   padding-bottom: 2em;
 }
 
+
+/* Edit thiyfgyuewbfuewvyufvey0vfyewvfvefvegvfgewvfvewovfgewvgyfewgs */
 .min-padding-top {
   padding-top: 2em;
-  padding-bottom: 0em;
+  padding-bottom: 2em;
 }
 
 /*
@@ -315,3 +318,8 @@ hr.black {
 	font-weight: bold;
 }
 
+
+/* .RlRed {
+	color: #E61231 !important;
+	font-weight: bold;
+} */
