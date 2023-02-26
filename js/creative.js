@@ -5,47 +5,47 @@ const URL = "http://localhost:5000/process";
 // windows.alert(5);
 // Function to process the uploaded image
 
-function processImage() {
+// function processImage() {
 
-  // Retrieve the selected image file from the input element
+//   // Retrieve the selected image file from the input element
 
-  const fileInput = document.getElementById("fileInput");
+//   const fileInput = document.getElementById("fileInput");
 
-  const file = fileInput.files[0];
-
- 
-
-  // Create a FormData object to store the file data
-
-  const formData = new FormData();
-
-  formData.append("file", file);
+//   const file = fileInput.files[0];
 
  
 
-  // Send a POST request to the Flask route with the FormData object
+//   // Create a FormData object to store the file data
 
-  fetch(URL, {
+//   const formData = new FormData();
 
-    method: "POST",
+//   formData.append("file", file);
 
-    body: formData
+ 
 
-  })
+//   // Send a POST request to the Flask route with the FormData object
 
-  .then(response => response.json())
+//   fetch(URL, {
 
-  .then(data => {
+//     method: "POST",
 
-    // Handle the response from the Flask route
+//     body: formData
 
-    console.log(data);
+//   })
 
-  })
+//   .then(response => response.json())
 
-  .catch(error => console.error(error));
+//   .then(data => {
 
-}
+//     // Handle the response from the Flask route
+
+//     console.log(data);
+
+//   })
+
+//   .catch(error => console.error(error));
+
+// }
 
  
 
@@ -230,3 +230,4 @@ $('.image-upload-wrap').bind('dragover', function () {
   });
 
 })(jQuery); // End of use strict
+
