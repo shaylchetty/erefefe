@@ -29,7 +29,7 @@ body {
 }
 
 .file-upload-btn:hover {
-  background: #1AA059;
+  background: #383737;
   color: #ffffff;
   transition: all .2s ease;
   cursor: pointer;
