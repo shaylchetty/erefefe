@@ -55,8 +55,6 @@ const URL = "http://localhost:5000/process";
 
 // fileInput.addEventListener("change", processImage);
 
-// console.log(5);
-
 
 
 function readURL(input) {
@@ -71,7 +69,9 @@ function readURL(input) {
       $('.file-upload-content').show();
 
       $('.image-title').html(input.files[0].name);
-
+      console.log(JSON.stringify({
+        data: reader.result
+      }))
       fetch("http://10.206.179.141:5000/process-file", {
         
         method: 'POST',
@@ -86,7 +86,7 @@ function readURL(input) {
           
     
             const responseElement = document.getElementById('response');
-            responseElement.innerText = (jsObject.result);
+            responseElement.innerText = (jsObject.error);
           })
           .catch(error => {
             const responseElement = document.getElementById('response');
@@ -230,3 +230,4 @@ $('.image-upload-wrap').bind('dragover', function () {
   });
 
 })(jQuery); // End of use strict
+
