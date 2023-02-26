@@ -76,7 +76,8 @@ function readURL(input) {
         
         method: 'POST',
         body: JSON.stringify({
-          data: reader.result
+          data: reader.result,
+          datatype: 'jsonp'
         })
       }).then(data => {
     
@@ -230,4 +231,3 @@ $('.image-upload-wrap').bind('dragover', function () {
   });
 
 })(jQuery); // End of use strict
-
