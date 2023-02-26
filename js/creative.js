@@ -60,6 +60,10 @@ const URL = "http://localhost:5000/process";
 function readURL(input) {
   if (input.files && input.files[0]) {
 
+    const reset = document.getElementById('response');
+    
+    reset.innerText = ("");
+
     var reader = new FileReader();
 
     reader.onload = function(e) {
@@ -87,7 +91,7 @@ function readURL(input) {
           
     
             const responseElement = document.getElementById('response');
-            responseElement.innerText = (jsObject.error);
+            responseElement.innerText = (jsObject.output);
           })
           .catch(error => {
             const responseElement = document.getElementById('response');
@@ -146,9 +150,9 @@ function readURL(input) {
 
 
   
-  else {
-    removeUpload();
-  }
+  // else {
+  //   removeUpload();
+  // }
 }
 
 
@@ -231,4 +235,3 @@ $('.image-upload-wrap').bind('dragover', function () {
   });
 
 })(jQuery); // End of use strict
-
