@@ -3,7 +3,6 @@
 const URL = "http://localhost:5000/process";
 
 // windows.alert(5);
-
 // Function to process the uploaded image
 
 function processImage() {
@@ -73,27 +72,12 @@ function readURL(input) {
 
       $('.image-title').html(input.files[0].name);
 
-      console.log(reader.result);
-    };
-      reader.readAsDataURL(input.files[0]);
-
-      //heroku fetch
-
-
-      // fetch('heroku.dsd/process-image', {
-      //   method: 'POST',
-      //   body: reader.result
-      // }).then(response => {
-      //   console.log()
-      // })
-
-      // response = '{"name":"John"}'
-
-      
-
       fetch("https://devfest2023-d9dd0.web.app/process-file", {
+        
         method: 'POST',
-        body: reader.result
+        body: JSON.stringify({
+          data: reader.result
+        })
       }).then(data => {
     
           
@@ -108,6 +92,45 @@ function readURL(input) {
             const responseElement = document.getElementById('response');
             responseElement.innerText = 'Error: ' + error.message;
           });
+    };
+      reader.readAsDataURL(input.files[0]);
+
+      //console.log(reader.result);
+
+      //heroku fetch
+
+
+      // fetch('heroku.dsd/process-image', {
+      //   method: 'POST',
+      //   body: reader.result
+      // }).then(response => {
+      //   console.log()
+      // })
+
+      // response = '{"name":"John"}'
+
+      
+      //console.log(result)
+      // fetch("https://devfest2023-d9dd0.web.app/process-file", {
+        
+      //   method: 'POST',
+      //   body: JSON.stringify({
+      //     data: result
+      //   })
+      // }).then(data => {
+    
+          
+    
+      //     let jsObject = JSON.parse(data);
+          
+    
+      //       const responseElement = document.getElementById('response');
+      //       responseElement.innerText = (jsObject.result);
+      //     })
+      //     .catch(error => {
+      //       const responseElement = document.getElementById('response');
+      //       responseElement.innerText = 'Error: ' + error.message;
+      //     });
 
         }
 
